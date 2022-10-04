@@ -32,8 +32,7 @@ def descifrar(word, key):
     return descifrado
 
 
-def buscarCoincidencias(word):
-    dic = read("T2\words.txt")
+def buscarCoincidencias(word,dic):
     coincidencias = 0
     words = word.split()
     for word in words:
@@ -43,6 +42,7 @@ def buscarCoincidencias(word):
 
 
 def descifrar_bruto(word):
+    dic = read("T2\words.txt")
     word = word.lower()
     mejor_llave = 0
     coincidencias_dic = 0
@@ -54,7 +54,7 @@ def descifrar_bruto(word):
                 descifrado += alfabeto[posicion]
             elif c == " ":
                 descifrado += c
-        coincidencias = buscarCoincidencias(descifrado)
+        coincidencias = buscarCoincidencias(descifrado,dic)
         if coincidencias > coincidencias_dic:
             coincidencias_dic = coincidencias
             mejor_llave = key
