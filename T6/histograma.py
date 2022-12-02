@@ -1,29 +1,15 @@
-def run():
-    def escribir(diccionario):
-        with open("histograma.csv","w") as f:
+def analizar(texto):
+        letras ={}
+        for letra in texto:
+            letras[letra] = 0
+        for letra in texto:
+            letras[letra] += 1
+        sorted_letras = dict(sorted(letras.items(), key=lambda item:item[1], reverse=True))
+        print(sorted_letras)
+        return sorted_letras
+
+def escribir(diccionario,idioma):
+        with open(f"T6\histograma{idioma}.csv","w",encoding="utf-8") as f:
             for llave, valor in diccionario.items():
                 print(f"llave: {llave} valor: {valor}")
                 f.write(f"{llave},{valor}\n")
-
-    def analizar(alfabeto,texto):
-        letras ={}
-        for letra in texto:
-            if letra in alfabeto:
-                letras[letra] = 0
-        for letra in texto:
-            if letra in alfabeto:
-                letras[letra] += 1
-        print(letras)
-        escribir(letras)
-
-    analizar("abcdfghijklmnopqrstuvwxyz","""Todavía tengo casi todos mis dientes
-casi todos mis cabellos y poquísimas canas
-puedo hacer y deshacer el amor
-trepar una escalera de dos en dos
-y correr cuarenta metros detrás del ómnibus
-o sea que no debería sentirme viejo
-pero el grave problema es que antes
-no me fijaba en estos detalles.""")     
-
-if __name__ == "__main__":
-    run()
