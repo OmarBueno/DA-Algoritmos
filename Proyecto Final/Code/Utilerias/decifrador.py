@@ -42,7 +42,7 @@ def buscarCoincidencias(texto, diccionario):
     #llaves de desencriptado
     llave1 = {"m":"i","r":"e","u":"o","y":"a","n":"l","i":"r","j":"n","z":"t","v":"c"
     ,"p":"s","q":"p","e":"d","l":"m","o":"g","s":"u","w":"v","b":"f","k":"h","t":"b","c":"q"}
-    lave2 = {"d":"a","z":"v","w":"e","t":"o","b":"n","c":"r",
+    llave2 = {"d":"a","z":"v","w":"e","t":"o","b":"n","c":"r",
     "h":"l","k":"i","q":"b","y":"t","s":"c","f":"s","i":"g","x":"m","a":"u",
     "g":"p","n":"d","o":"f","v":"h","l":"z","p":"q"}
     #Texto remplazado con la llave
@@ -54,9 +54,11 @@ def buscarCoincidencias(texto, diccionario):
     for palabra in desencriptado:
         if palabra in diccionario:
             coincidencias += 1
-            print(f"coincidencia: {palabra}")
+            #print(f"coincidencia: {palabra}")
     #palabrras del texto
-    print(f"Palabras del texto:{len(palabra)}")
+    print(f"Palabras del texto:{len(desencriptado)}")
     #coincidencias encontradas
     print(f"Coincidencias encontradas:{coincidencias}")
+
+    print(f"similitud {coincidencias/len(desencriptado)*100}")
     return coincidencias/len(desencriptado)

@@ -13,7 +13,7 @@ def cargarDic(texto):
         #result = re.split(
         #    r'[*+|°©ι=@<>[:;%/…–-•-,·ε’«»¡οτ!"()&?¿.\s\d]\s*', diccionario)
         result = diccionario.split(",")
-        print(f"Diccionario {result}")
+        #print(f"Diccionario {result}")
         # print(len(result))
         result = set(result)
         result = list(result)
